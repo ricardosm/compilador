@@ -1,0 +1,16 @@
+
+abc"ricardo";
+	
+a = b/9; /* Ricardo */
+	
+	nome s = "Ricardo";
+    S	
+	char r = 'r';
+	
+/*RRR*\
+
+x=0.1;
+
+//kakaka
+
+a = 10;

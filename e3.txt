@@ -1,0 +1,31 @@
+int main()
+{
+    double firstNumber, secondNumber;
+    boolean b;
+
+    printf("Enter first number: ");
+    scanf("%lf", &firstNumber);
+
+    printf("Enter second number: ");
+    scanf("%lf",&secondNumber);
+
+    firstNumber = firstNumber - secondNumber;
+    secondNumber = firstNumber + secondNumber;
+    firstNumber = secondNumber - firstNumber;
+	
+	b = firstNumber >= secondNumber;
+	
+	if(8>5) {
+      
+     }
+     
+    float lastNumber = firstNumber * secondNumber;
+    
+    lastNumber = lastNumber = 9.0002;
+	
+    printf("\nAfter swapping, firstNumber = %.2lf\n", firstNumber);
+    printf("After swapping, secondNumber = %.2lf", secondNumber);
+
+	a???a;
+    return 0;
+}
