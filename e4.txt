@@ -1,16 +1,8 @@
-
-abc"ricardo";
-	
-a = b/9; /* Ricardo */
-	
-	nome s = "Ricardo";
-    S	
-	char r = 'r';
-	
-/*RRR*\
-
-x=0.1;
-
-//kakaka
-
-a = 10;
+int a = 10;
+float b = 2.5;
+float c;
+while(1) {
+	c = c + a * b;
+	c = c * 2;
+	in d;
+}

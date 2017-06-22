@@ -1,0 +1,7 @@
+// Falta de ponto e virgula
+int b = 0;
+if(5+2){
+int k = 0;
+int a;
+a = k + 1
+}

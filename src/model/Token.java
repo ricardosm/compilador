@@ -37,5 +37,9 @@ public abstract class Token {
 	public void setLexema(Lexema lexema) {
 		this.lexema = lexema;
 	}
+	
+	public String getStringLexema() {
+		return this.lexema.getLexema();
+	}
 
 }

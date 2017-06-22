@@ -15,29 +15,29 @@ import model.TokenOperador;
 import model.TokenPalavraReservada;
 import model.TokenSeparador;
 
-public final class AnalisadorLexico {	
+public class AnalisadorLexico {	
 	private static final String regexStrings = "^\".+\"$|^\'.+\'$";
 	private static final String regexNumeros = "\\d+\\.\\d+|\\d+";
 	private static final String regexIndentificadores = "[a-zA-Z][\\da-zA-Z_]*";
-	private static final String regexPalavrasReservadas = "print|char|void|int|float|double|boolean|if|else|for|while|return|continue|break|read";
+	private static final String regexPalavrasReservadas = "print|char|void|int|float|double|if|else|for|while|return|continue|break|read";
 	private static final String regexOperadoresAritmeticos = "\\^|\\+|-|/|\\*";
 	private static final String regexOperadorAtribuicao = "=";
 	private static final String regexOperadorPosIncremento = "\\+\\+";
 	private static final String regexOperadoresLogicos = "&&|\\|\\||<|>|<=|>=|==|!=";
 	private static final String reexSeparadores = ";|\\[|\\]|\\(|\\)|\\{|\\}|,";
 	
-	private static final ArrayList<Token> tokens = new ArrayList<>();
-	private static final ArrayList<Erro> erros = new ArrayList<>();
+	private final ArrayList<Token> tokens = new ArrayList<>();
+	private final ArrayList<Erro> erros = new ArrayList<>();
 	
-	public static ArrayList<Token> getTokens() {
+	public ArrayList<Token> getTokens() {
 		return tokens;
 	}
 
-	public static ArrayList<Erro> getErros() {
+	public ArrayList<Erro> getErros() {
 		return erros;
 	}
 	
-	public static void scanear(BufferedReader br) throws IOException {
+	public void scanear(BufferedReader br) throws IOException {
 		String linha;
 		String lexema = "";
 		char c;
@@ -172,7 +172,7 @@ public final class AnalisadorLexico {
 		}		
 	}
 	
-	public static void gerarTokenValido(Lexema l) {
+	public void gerarTokenValido(Lexema l) {
 		if(l.getLexema().matches(regexPalavrasReservadas)) {
 			tokens.add(new TokenPalavraReservada(l));
 		} else if(l.getLexema().matches(regexIndentificadores)) {

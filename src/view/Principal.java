@@ -12,6 +12,7 @@ import java.io.OutputStreamWriter;
 import java.util.Scanner;
 
 import controller.AnalisadorLexico;
+import controller.AnalisadorSintatico;
 import model.Erro;
 import model.Token;
 
@@ -25,6 +26,8 @@ public class Principal {
 		final OutputStreamWriter osw;
 		final BufferedReader br;
 		final BufferedWriter bw;
+		AnalisadorLexico lexico;
+		AnalisadorSintatico sintatico;
 		
 		System.out.println("Digite o nome do Arquivo de Entrada");
 		nomeArquivoEntrada = sc.nextLine();
@@ -39,14 +42,15 @@ public class Principal {
 			osw = new OutputStreamWriter(os);
 			bw = new BufferedWriter(osw);
 			
-			AnalisadorLexico.scanear(br);
+			lexico = new AnalisadorLexico();
+			lexico.scanear(br);
 			
 			System.out.println("\n--- Lista de Tokens: --- \n");
 			bw.write("--- Lista de Tokens: ---");
 			bw.newLine();
 			bw.newLine();
 
-			for(Token t : AnalisadorLexico.getTokens()) {
+			for(Token t : lexico.getTokens()) {
 				System.out.print("Token: ");
 				System.out.println( t.getToken());
 				System.out.println("Posição: [" + t.getLexema().getLinha() + " , " + t.getLexema().getColuna() + "]");
@@ -66,7 +70,17 @@ public class Principal {
 			bw.newLine();
 			bw.newLine();
 			
-			for(Erro e: AnalisadorLexico.getErros()) {
+			for(Erro e: lexico.getErros()) {
+				System.out.println(e.getMensagemErro());
+				bw.write(e.getMensagemErro());
+				bw.newLine();
+			}
+			
+			
+			sintatico = new AnalisadorSintatico();
+			sintatico.programa(lexico.getTokens());
+			
+			for(Erro e: sintatico.getErros()) {
 				System.out.println(e.getMensagemErro());
 				bw.write(e.getMensagemErro());
 				bw.newLine();

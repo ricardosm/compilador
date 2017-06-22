@@ -6,6 +6,5 @@ public class ErroLexico extends Erro {
 		this.setLinha(linha);
 		this.setColuna(coluna);
 		this.setMensagemErro("Erro Léxico -- Linha: " + linha + " Coluna: " + coluna);
-		//this.setMensagemErro("Erro Léxico -- Linha: " + linha);
 	}
 }
