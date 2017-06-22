@@ -43,14 +43,13 @@ Este projeto consiste na implementação de um compilador para uma versão simpl
 [CONDICAO] ::= <if>[EXPRESSAO]<{>[BLOCO]<}><else><{>[BLOCO]<}>
 
 ## Execução
-O compilador foi iplementado por meio da linguagem java. Para executar basta importar o projeto na IDE Eclipse ou compilar manualmente por meio do javac no terminal.
+O compilador foi implementado por meio da linguagem java. Para executar basta importar o projeto na IDE Eclipse ou compilar manualmente por meio do javac no terminal.
 
 ## Saída
-O programa imprime como saida por meio do arquivo "arquivoSaida.txt":
+O programa imprime como saída por meio do arquivo "arquivoSaida.txt":
 - a lista de tokens 
-- a listagem de erros identificando se o erro é léxico ou sintático.
+- a listagem de erros, identificando se o erro é léxico ou sintático.
 
 ### Desenvolvido por:
 Ricardo de Souza Monteiro
-Lucas Cruz ([github](https://github.com/ricardosm))
 
