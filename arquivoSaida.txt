@@ -1,0 +1,71 @@
+--- Lista de Tokens: ---
+
+Token: < int , >
+Posição: [2 , 1]
+
+Token: < id , a >
+Posição: [2 , 5]
+
+Token: < , , >
+Posição: [2 , 6]
+
+Token: < id , b >
+Posição: [2 , 8]
+
+Token: < , , >
+Posição: [2 , 9]
+
+Token: < id , c >
+Posição: [2 , 11]
+
+Token: < ; , >
+Posição: [2 , 12]
+
+Token: < int , >
+Posição: [3 , 1]
+
+Token: < id , a >
+Posição: [3 , 5]
+
+Token: < = , >
+Posição: [3 , 7]
+
+Token: < number , 0 >
+Posição: [3 , 9]
+
+Token: < ; , >
+Posição: [3 , 10]
+
+Token: < int , >
+Posição: [4 , 1]
+
+Token: < id , b >
+Posição: [4 , 5]
+
+Token: < = , >
+Posição: [4 , 7]
+
+Token: < number , 2 >
+Posição: [4 , 9]
+
+Token: < ; , >
+Posição: [4 , 10]
+
+Token: < float , >
+Posição: [6 , 1]
+
+Token: < id , d >
+Posição: [6 , 7]
+
+Token: < = , >
+Posição: [6 , 9]
+
+Token: < number , 0 >
+Posição: [6 , 11]
+
+Token: < ; , >
+Posição: [6 , 12]
+
+
+--- Lista de Erros: ---
+

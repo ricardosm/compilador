@@ -79,6 +79,7 @@ public class Principal {
 			
 			sintatico = new AnalisadorSintatico();
 			sintatico.programa(lexico.getTokens());
+			sintatico.imprimirVariaveisDeclaradas();
 			
 			for(Erro e: sintatico.getErros()) {
 				System.out.println(e.getMensagemErro());

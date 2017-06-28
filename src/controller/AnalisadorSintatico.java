@@ -6,17 +6,21 @@ import model.Erro;
 import model.ErroSintatico;
 import model.Lexema;
 import model.Token;
+import model.TokenIdentificador;
 import model.TokenSeparador;
 
 public class AnalisadorSintatico {
 	private static final String regexNumeros = "\\d+\\.\\d+|\\d+";
 	private static final String regexIndentificadores = "[a-zA-Z][\\da-zA-Z_]*";
+	private String tipoDeclaracao;
 	private int indice;
 	private ArrayList<Erro> erros;
-
+	private ArrayList<TokenIdentificador> variaveisDeclaradas;
+	
 	public AnalisadorSintatico() {
 		this.indice = 0;
 		erros = new ArrayList<>();
+		variaveisDeclaradas = new ArrayList<>();
 	}
 	
 	public ArrayList<Erro> getErros() {
@@ -136,8 +140,17 @@ public class AnalisadorSintatico {
 	public void declaracao_multipla(ArrayList<Token> tokens) {
 		this.indice++;
 		if (tokens.get(indice).getStringLexema().matches(regexIndentificadores)) {
+			TokenIdentificador token = (TokenIdentificador)tokens.get(indice);
+			if(!verificarDeclaracao(token)) {
+				token.setTipo(tipoDeclaracao);
+				token.setDeclarado(true);
+				variaveisDeclaradas.add(token);
+			} else {
+				System.out.println("Variavel ja declarada: " + token.getStringLexema());
+			}
 			this.indice++;
 			if (tokens.get(indice).getStringLexema().equals(";")) {
+				this.indice++;
 				return;
 			} else if (tokens.get(indice).getStringLexema().equals(",")) {
 				declaracao_multipla(tokens);
@@ -152,12 +165,30 @@ public class AnalisadorSintatico {
 			System.exit(1);
 		}
 	}
-
+	
+	public boolean verificarDeclaracao(TokenIdentificador token) {
+		for(TokenIdentificador t : variaveisDeclaradas) {
+			if(token.getStringLexema().equals(t.getStringLexema())) {
+				return true;
+			}			
+		}
+		return false;
+	}
+	
 	public void declaracao(ArrayList<Token> tokens) {
 		this.indice++;
 		if (tokens.get(indice).getStringLexema().matches(regexIndentificadores)) {
+			TokenIdentificador token = (TokenIdentificador)tokens.get(indice);
+			if(!verificarDeclaracao(token)) {
+				token.setTipo(tokens.get(indice - 1 ).getStringLexema());
+				token.setDeclarado(true);
+				variaveisDeclaradas.add(token);
+			} else {
+				System.out.println("Variavel ja declarada: " + token.getStringLexema());
+			}
 			this.indice++;
 			if (tokens.get(indice).getStringLexema().equals(",")) {
+				this.tipoDeclaracao = tokens.get(indice - 2).getStringLexema();
 				declaracao_multipla(tokens);
 			} else if (tokens.get(indice).getStringLexema().equals(";")) {
 				this.indice++;
@@ -281,5 +312,10 @@ public class AnalisadorSintatico {
 			}
 		}
 	}
-
+	
+	public void imprimirVariaveisDeclaradas() {
+		for(TokenIdentificador t: variaveisDeclaradas) {
+			System.out.println("Identificador: " + t.getStringLexema() + " Tipo: " + t.getTipo());
+		}
+	}
 }

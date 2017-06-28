@@ -2,4 +2,5 @@
 int a, b, c;
 int a = 0;
 int b = 2;
-int c+b;
+//int c+b;
+float d = 0;
