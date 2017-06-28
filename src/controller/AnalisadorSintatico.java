@@ -121,6 +121,7 @@ public class AnalisadorSintatico {
 				this.indice++;
 				valor_atribuido(tokens);
 				if (tokens.get(indice).getStringLexema().equals(";")) {
+					
 					this.indice++;
 				} else {
 					this.indice--;
