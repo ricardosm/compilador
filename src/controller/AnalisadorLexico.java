@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import model.Erro;
 import model.ErroLexico;
+import model.ExpressoesRegulares;
 import model.Lexema;
 import model.Token;
 import model.TokenIdentificador;
@@ -15,17 +16,7 @@ import model.TokenOperador;
 import model.TokenPalavraReservada;
 import model.TokenSeparador;
 
-public class AnalisadorLexico {	
-	private static final String regexStrings = "^\".+\"$|^\'.+\'$";
-	private static final String regexNumeros = "\\d+\\.\\d+|\\d+";
-	private static final String regexIndentificadores = "[a-zA-Z][\\da-zA-Z_]*";
-	private static final String regexPalavrasReservadas = "print|char|void|int|float|double|if|else|for|while|return|continue|break|read";
-	private static final String regexOperadoresAritmeticos = "\\^|\\+|-|/|\\*";
-	private static final String regexOperadorAtribuicao = "=";
-	private static final String regexOperadorPosIncremento = "\\+\\+";
-	private static final String regexOperadoresLogicos = "&&|\\|\\||<|>|<=|>=|==|!=";
-	private static final String reexSeparadores = ";|\\[|\\]|\\(|\\)|\\{|\\}|,";
-	
+public class AnalisadorLexico {		
 	private final ArrayList<Token> tokens = new ArrayList<>();
 	private final ArrayList<Erro> erros = new ArrayList<>();
 	
@@ -173,23 +164,23 @@ public class AnalisadorLexico {
 	}
 	
 	public void gerarTokenValido(Lexema l) {
-		if(l.getLexema().matches(regexPalavrasReservadas)) {
+		if(l.getLexema().matches(ExpressoesRegulares.regexPalavrasReservadas)) {
 			tokens.add(new TokenPalavraReservada(l));
-		} else if(l.getLexema().matches(regexIndentificadores)) {
+		} else if(l.getLexema().matches(ExpressoesRegulares.regexIndentificadores)) {
 			tokens.add(new TokenIdentificador(l));		
-		} else if(l.getLexema().matches(regexStrings)) {
+		} else if(l.getLexema().matches(ExpressoesRegulares.regexStrings)) {
 			tokens.add(new TokenLiteral(l));			
-		} else if(l.getLexema().matches(regexNumeros)) {
+		} else if(l.getLexema().matches(ExpressoesRegulares.regexNumeros)) {
 			tokens.add(new TokenNumero(l));				
-		} else if(l.getLexema().matches(regexOperadoresAritmeticos)) {
+		} else if(l.getLexema().matches(ExpressoesRegulares.regexOperadoresAritmeticos)) {
 			tokens.add(new TokenOperador(l));								
-		} else if(l.getLexema().matches(regexOperadorAtribuicao)) {
+		} else if(l.getLexema().matches(ExpressoesRegulares.regexOperadorAtribuicao)) {
 			tokens.add(new TokenOperador(l));			
-		} else if(l.getLexema().matches(regexOperadorPosIncremento)) {
+		} else if(l.getLexema().matches(ExpressoesRegulares.regexOperadorPosIncremento)) {
 			tokens.add(new TokenOperador(l));			
-		} else if(l.getLexema().matches(regexOperadoresLogicos)) {
+		} else if(l.getLexema().matches(ExpressoesRegulares.regexOperadoresLogicos)) {
 			tokens.add(new TokenOperador(l));				
-		} else if(l.getLexema().matches(reexSeparadores)) {		
+		} else if(l.getLexema().matches(ExpressoesRegulares.reexSeparadores)) {		
 			tokens.add(new TokenSeparador(l));
 		} else {
 			erros.add(new ErroLexico(l.getLinha(), l.getColuna()));

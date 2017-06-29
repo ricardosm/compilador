@@ -1,6 +1,7 @@
-// Declarações
-int a, b, c;
-int a = 0;
-int b = 2;
-//int c+b;
-float d = 0;
+int a, b, c, d;
+float x;
+a = b + c;
+a = d / c;
+a = d * c;
+b = b + d;
+b = a - d;

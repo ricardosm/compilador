@@ -1,70 +1,130 @@
 --- Lista de Tokens: ---
 
 Token: < int , >
-Posição: [2 , 1]
+Posição: [1 , 1]
 
 Token: < id , a >
-Posição: [2 , 5]
+Posição: [1 , 5]
 
 Token: < , , >
-Posição: [2 , 6]
+Posição: [1 , 6]
 
 Token: < id , b >
-Posição: [2 , 8]
+Posição: [1 , 8]
 
 Token: < , , >
-Posição: [2 , 9]
+Posição: [1 , 9]
 
 Token: < id , c >
-Posição: [2 , 11]
+Posição: [1 , 11]
+
+Token: < , , >
+Posição: [1 , 12]
+
+Token: < id , d >
+Posição: [1 , 14]
 
 Token: < ; , >
-Posição: [2 , 12]
+Posição: [1 , 15]
 
-Token: < int , >
-Posição: [3 , 1]
+Token: < float , >
+Posição: [2 , 1]
+
+Token: < id , x >
+Posição: [2 , 7]
+
+Token: < ; , >
+Posição: [2 , 8]
 
 Token: < id , a >
-Posição: [3 , 5]
+Posição: [3 , 1]
 
 Token: < = , >
+Posição: [3 , 3]
+
+Token: < id , b >
+Posição: [3 , 5]
+
+Token: < + , >
 Posição: [3 , 7]
 
-Token: < number , 0 >
+Token: < id , c >
 Posição: [3 , 9]
 
 Token: < ; , >
 Posição: [3 , 10]
 
-Token: < int , >
+Token: < id , a >
 Posição: [4 , 1]
 
-Token: < id , b >
+Token: < = , >
+Posição: [4 , 3]
+
+Token: < id , d >
 Posição: [4 , 5]
 
-Token: < = , >
+Token: < / , >
 Posição: [4 , 7]
 
-Token: < number , 2 >
+Token: < id , c >
 Posição: [4 , 9]
 
 Token: < ; , >
 Posição: [4 , 10]
 
-Token: < float , >
-Posição: [6 , 1]
-
-Token: < id , d >
-Posição: [6 , 7]
+Token: < id , a >
+Posição: [5 , 1]
 
 Token: < = , >
-Posição: [6 , 9]
+Posição: [5 , 3]
 
-Token: < number , 0 >
-Posição: [6 , 11]
+Token: < id , d >
+Posição: [5 , 5]
+
+Token: < * , >
+Posição: [5 , 7]
+
+Token: < id , c >
+Posição: [5 , 9]
 
 Token: < ; , >
-Posição: [6 , 12]
+Posição: [5 , 10]
+
+Token: < id , b >
+Posição: [6 , 1]
+
+Token: < = , >
+Posição: [6 , 3]
+
+Token: < id , b >
+Posição: [6 , 5]
+
+Token: < + , >
+Posição: [6 , 7]
+
+Token: < id , d >
+Posição: [6 , 9]
+
+Token: < ; , >
+Posição: [6 , 10]
+
+Token: < id , b >
+Posição: [7 , 1]
+
+Token: < = , >
+Posição: [7 , 3]
+
+Token: < id , a >
+Posição: [7 , 5]
+
+Token: < - , >
+Posição: [7 , 7]
+
+Token: < id , d >
+Posição: [7 , 9]
+
+Token: < ; , >
+Posição: [7 , 10]
 
 
 --- Lista de Erros: ---

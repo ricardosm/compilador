@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 import controller.AnalisadorLexico;
 import controller.AnalisadorSintatico;
+import controller.GeradorDeCodigo;
 import model.Erro;
 import model.Token;
 
@@ -26,8 +27,11 @@ public class Principal {
 		final OutputStreamWriter osw;
 		final BufferedReader br;
 		final BufferedWriter bw;
-		AnalisadorLexico lexico;
-		AnalisadorSintatico sintatico;
+		
+		AnalisadorLexico lexico = new AnalisadorLexico();
+		GeradorDeCodigo gerador = new GeradorDeCodigo();
+		AnalisadorSintatico sintatico = new AnalisadorSintatico(gerador);
+		
 		
 		System.out.println("Digite o nome do Arquivo de Entrada");
 		nomeArquivoEntrada = sc.nextLine();
@@ -42,7 +46,6 @@ public class Principal {
 			osw = new OutputStreamWriter(os);
 			bw = new BufferedWriter(osw);
 			
-			lexico = new AnalisadorLexico();
 			lexico.scanear(br);
 			
 			System.out.println("\n--- Lista de Tokens: --- \n");
@@ -77,10 +80,10 @@ public class Principal {
 			}
 			
 			
-			sintatico = new AnalisadorSintatico();
 			sintatico.programa(lexico.getTokens());
-			sintatico.imprimirVariaveisDeclaradas();
 			
+			gerador.imprimirCodigo();
+		
 			for(Erro e: sintatico.getErros()) {
 				System.out.println(e.getMensagemErro());
 				bw.write(e.getMensagemErro());
