@@ -34,7 +34,7 @@ public class GeradorDeCodigo {
 
 			break;
 		default:
-			System.out.println("Instrução Inválida!");
+			System.out.println("A instrução informada é Inválida!");
 		}
 	}
 
@@ -57,7 +57,7 @@ public class GeradorDeCodigo {
 			codigo.add("DIV " + tr.getRegistrador() + ", " + ta.getRegistrador() + ", " + tb.getRegistrador());
 			break;
 		default:
-			System.out.println("Instrução Inválida!");
+			System.out.println("A instrução informada é Inválida!");
 		}
 	}
 	
